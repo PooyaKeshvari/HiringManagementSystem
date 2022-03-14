@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HiringManagementSystem.EntityFrameworkCore.Migrations
 {
     [DbContext(typeof(HiringManagementSystemDbContext))]
-    [Migration("20220312133414_InitialDb")]
+    [Migration("20220314174430_InitialDb")]
     partial class InitialDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
