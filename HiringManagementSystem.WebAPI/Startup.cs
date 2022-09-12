@@ -127,7 +127,7 @@ namespace HiringManagementSystem.WebAPI
                 //app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "HiringManagementSystem.WebAPI v1"));
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

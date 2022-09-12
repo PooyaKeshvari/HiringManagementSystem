@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using HiringManagementSystem.Application.Interfaces;
+using System.Linq;
 
 namespace HiringManagementSystem.Application.Services
 {
@@ -27,7 +28,7 @@ namespace HiringManagementSystem.Application.Services
         #region [-Props-]
 
         public IPersonFactoryService Factory { get; set; }
-        public IPersonRepository Repository { get; set; }
+        public IPersonRepository Repository { get; set; }   
         public IMapper Mapper { get; set; }
 
         #endregion
@@ -38,9 +39,10 @@ namespace HiringManagementSystem.Application.Services
 
         public async Task CreateAsync(CreatePersonDto personDto)
         {
-            var person = Mapper.Map<Person>(personDto);
-
+            var pers =  Mapper.Map<Person>(personDto);
+            var person =await Factory.PrepareForCreatePersonAsync(pers.FirstName, pers.Family, pers.NationalId, pers.BirthDate, pers.Tags.ToList());
             await Repository.CreateAsync(person);
+
         }
 
         #endregion
